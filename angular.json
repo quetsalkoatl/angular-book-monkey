@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/semantic-ui-css/semantic.css"
             ],
             "scripts": []
           },
@@ -94,13 +94,25 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/semantic-ui-css/semantic.css"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "book-monkey"
+  "defaultProject": "book-monkey",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
