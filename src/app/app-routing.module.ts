@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {BookListComponent} from "./book-list/book-list.component";
 import {BookDetailsComponent} from "./book-details/book-details.component";
+import {CreateBookComponent} from "./create-book/create-book.component";
+import {EditBookComponent} from "./edit-book/edit-book.component";
 
 const routes: Routes = [
   {
@@ -21,6 +23,19 @@ const routes: Routes = [
   {
     path: 'books/:isbn',
     component: BookDetailsComponent
+  },
+  {
+    path: 'admin',
+    redirectTo: 'admin/create',
+    pathMatch: 'full'
+  },
+  {
+    path: 'admin/create',
+    component: CreateBookComponent
+  },
+  {
+    path: 'admin/edit/:isbn',
+    component: EditBookComponent
   }
 ];
 

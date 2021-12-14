@@ -9,7 +9,7 @@ import {BookFactory} from "./book-factory";
   providedIn: 'root'
 })
 export class BookStoreService {
-  private api = 'https://api4.angular-buch.com';
+  private api = 'https://api4.angular-buch.com/secure';
 
   // books: Book[]
 
@@ -80,6 +80,20 @@ export class BookStoreService {
 
   remove(isbn: string): Observable<any> {
     return this.http.delete(`${this.api}/book/${isbn}`, { responseType: 'text' } )
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
+  create(book: Book): Observable<any> {
+    return this.http.post(`${this.api}/book`, book, { responseType: 'text' })
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
+  update(book: Book): Observable<any> {
+    return this.http.put(`${this.api}/book/${book.isbn}`, book, { responseType: 'text' })
       .pipe(
         catchError(this.errorHandler)
       );
