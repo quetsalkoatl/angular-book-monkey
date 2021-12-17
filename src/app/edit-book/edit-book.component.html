@@ -1,2 +1,9 @@
 <h1>Buch bearbeiten</h1>
-<bm-book-form-r *ngIf="book" (submitBook)="updateBook($event)" [book]="book" [editing]="true"></bm-book-form-r>
+<ng-container *ngIf="book$ | async as book; else loading">
+  <bm-book-form-r  (submitBook)="updateBook($event)" [book]="book" [editing]="true"></bm-book-form-r>
+</ng-container>
+<ng-template #loading>
+  <div class="ui active dimmer">
+    <div class="ui large text loader">Daten werden geladen...</div>
+  </div>
+</ng-template>

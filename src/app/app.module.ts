@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,12 @@ import { CreateBookComponent } from './create-book/create-book.component';
 import { FormMessagesComponent } from './form-messages/form-messages.component';
 import {BookFormReactiveComponent} from "./book-form-reactive/book-form.component";
 import { EditBookComponent } from './edit-book/edit-book.component';
+import {registerLocaleData} from "@angular/common";
+import localeDeCH from '@angular/common/locales/de-CH';
+import localeDe from '@angular/common/locales/de';
+import { IsbnPipe } from './shared/isbn.pipe';
+import { ZoomDirective } from './shared/zoom.directive';
+import { DelayDirective } from './shared/delay.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,10 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     BookFormReactiveComponent,
     CreateBookComponent,
     FormMessagesComponent,
-    EditBookComponent
+    EditBookComponent,
+    IsbnPipe,
+    ZoomDirective,
+    DelayDirective
   ],
   imports: [
     BrowserModule,
@@ -45,8 +54,14 @@ import { EditBookComponent } from './edit-book/edit-book.component';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    { provide: LOCALE_ID, useValue: 'de-CH' }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    registerLocaleData(localeDeCH);
+    registerLocaleData(localeDe);
+  }
+}

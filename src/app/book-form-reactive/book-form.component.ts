@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {BookFactory} from "../shared/book-factory";
 import {Book, Thumbnail} from "../shared/book";
 import {FormArray, FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
+import {BookExistsValidatorsService} from "../shared/book-exists-validators.service";
+import {BookValidators} from "../shared/book-validators";
 
 @Component({
   selector: 'bm-book-form-r',
@@ -16,7 +18,7 @@ export class BookFormReactiveComponent implements OnInit, OnChanges {
   bookForm!: FormGroup;
   @Output() submitBook = new EventEmitter<Book>();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private bookExistsValidator: BookExistsValidatorsService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -61,9 +63,13 @@ export class BookFormReactiveComponent implements OnInit, OnChanges {
     this.bookForm = this.fb.group({
       title: ['', Validators.required],
       subtitle: [''],
-      isbn: [{value: '', disabled: this.editing}, [
-        Validators.required, Validators.minLength(10), Validators.maxLength(10)
-      ]],
+      isbn: [
+        { value: '', disabled: this.editing },
+        [
+          Validators.required, BookValidators.isbnFormat
+        ],
+        this.editing ? null : [this.bookExistsValidator]
+      ],
       description: [''],
       authors: this.buildAuthorsArray(['']),
       thumbnails: this.buildThumbnailsArray([ { title: '', url: '' } ]),
@@ -79,7 +85,7 @@ export class BookFormReactiveComponent implements OnInit, OnChanges {
   }
 
   private buildAuthorsArray(values: string[]): FormArray {
-    return this.fb.array(values, Validators.required);
+    return this.fb.array(values, BookValidators.atLeastOneAuthor);
   }
 
   private buildThumbnailsArray(values: Thumbnail[]): FormArray {

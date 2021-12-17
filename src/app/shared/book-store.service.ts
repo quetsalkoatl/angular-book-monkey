@@ -99,6 +99,10 @@ export class BookStoreService {
       );
   }
 
+  check(isbn: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.api}/book/${isbn}/check`).pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: HttpErrorResponse): Observable<any> {
     console.error('Ein Fehler ist aufgetreten!');
     return throwError(() => error);
