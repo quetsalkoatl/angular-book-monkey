@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<translationbundle lang=en>
+  <translation id="BookFormComponent:book title">Book title</translation>
+  <translation id="BookFormComponent:book subtitle">Subtitle</translation>
+  <translation id="BookFormComponent:book isbn">ISBN</translation>
+  <translation id="BookFormComponent:book published date">Publication date</translation>
+  <translation id="BookFormComponent:book authors">Authors</translation>
+  <translation id="BookFormComponent:add author">+ Author</translation>
+  <translation id="BookFormComponent:author placeholder">Author</translation>
+  <translation id="BookFormComponent:book description">Description</translation>
+  <translation id="BookFormComponent:book thumbnails">Images</translation>
+  <translation id="BookFormComponent:add thumbnail">+ Image</translation>
+  <translation id="BookFormComponent:book url placeholder">URL</translation>
+  <translation id="BookFormComponent:book thumbnail placeholder">Title</translation>
+  <translation id="BookFormComponent:book form save">Save</translation>
+  <translation id="CreateBookComponent:create">Add book</translation>
+  <translation id="EditBookComponent:edit">Edit book</translation>
+  <translation id="Loader:loading data">Loading data...</translation>
+  <translation id="AppComponent:home" desc="Text of the link to the home screen">Home</translation>
+  <translation id="AppComponent:books" desc="Text of the link to the books screen">Books</translation>
+  <translation id="AppComponent:admin" desc="Text of the link to the admin screen">Administration</translation>
+  <translation id="BookDetailsComponent:book authors">Authors</translation>
+  <translation id="BookDetailsComponent:book isbn">ISBN</translation>
+  <translation id="BookDetailsComponent:book published date">Published</translation>
+  <translation id="BookDetailsComponent:book rating">Rating</translation>
+  <translation id="BookDetailsComponent:book description">Description</translation>
+  <translation id="BookDetailsComponent:book delete">Delete book</translation>
+  <translation id="BookDetailsComponent:book edit">Edit book</translation>
+  <translation id="BookDetailsComponent:book back">Back to book list</translation>
+  <translation id="BookListComponent:no book">There are no book available.</translation>
+  <translation id="CanNavigateToAdminGuard:question">With great power comes great responsibility. Do you want to enter the admin-area?</translation>
+  <translation id="HomeComponent:header">Home</translation>
+  <translation id="HomeComponent:tagline" desc="a proud sentence about the project">This is the BookMonkey.</translation>
+  <translation id="HomeComponent:book list link" desc="Text of the link to the books screen">View book list</translation>
+  <translation id="HomeComponent:search">Search</translation>
+</translationbundle>

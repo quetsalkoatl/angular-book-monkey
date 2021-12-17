@@ -13,6 +13,15 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "bm",
+      "i18n": {
+        "sourceLocale": "de",
+        "locales": {
+          "en": {
+            "translation": "src/messages.en.xtb",
+            "baseHref": ""
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -22,6 +31,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -53,6 +63,9 @@
               ],
               "outputHashing": "all"
             },
+            "en": {
+              "localize": ["en"]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -69,6 +82,9 @@
           "configurations": {
             "production": {
               "browserTarget": "book-monkey:build:production"
+            },
+            "en": {
+              "browserTarget": "book-monkey:build:en"
             },
             "development": {
               "browserTarget": "book-monkey:build:development"
