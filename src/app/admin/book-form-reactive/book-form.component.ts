@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
-import {BookFactory} from "../shared/book-factory";
-import {Book, Thumbnail} from "../shared/book";
+import {BookFactory} from "../../shared/book-factory";
+import {Book, Thumbnail} from "../../shared/book";
 import {FormArray, FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {BookExistsValidatorsService} from "../shared/book-exists-validators.service";
 import {BookValidators} from "../shared/book-validators";

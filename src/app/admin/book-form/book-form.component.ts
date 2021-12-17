@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import {BookFactory} from "../shared/book-factory";
-import {Book} from "../shared/book";
+import {BookFactory} from "../../shared/book-factory";
+import {Book} from "../../shared/book";
 import {NgForm} from "@angular/forms";
 
 @Component({
