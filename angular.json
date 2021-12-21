@@ -64,7 +64,9 @@
               "outputHashing": "all"
             },
             "en": {
-              "localize": ["en"]
+              "localize": [
+                "en"
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -114,6 +116,21 @@
             ],
             "scripts": []
           }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "book-monkey:serve:production"
+            },
+            "development": {
+              "devServerTarget": "book-monkey:serve:development"
+            }
+          },
+          "defaultConfiguration": "development"
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
