@@ -1,19 +1,28 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {Book} from "./book";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, map, Observable, retry, throwError} from "rxjs";
 import {BookRaw} from "./book-raw";
 import {BookFactory} from "./book-factory";
+import {API_URL} from "../../tokens";
+import {SettingsService} from "./settings.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookStoreService {
-  private api = 'https://api4.angular-buch.com/secure';
+  private api: string /*= 'https://api4.angular-buch.com/secure'*/;
 
   // books: Book[]
 
-  constructor(private http: HttpClient) {
+  constructor(
+    // removed because assets/settings[.template].json
+    // @Inject(API_URL) private api: string,
+    private http: HttpClient,
+    // for assets/settings[.template].json
+    private settingsService: SettingsService
+  ) {
+    this.api = settingsService.settings.apiUrl;
     // this.books = [
     //   {
     //     isbn: '9783864907791',

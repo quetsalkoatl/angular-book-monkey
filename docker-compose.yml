@@ -1,0 +1,10 @@
+version: "3"
+services:
+  bm-web:
+    image: book-monkey
+    env_file:
+      - ./docker.env
+    ports:
+      - "8088:80"
+    # for assets/settings[.template].json
+    command: /bin/bash -c "envsubst '$$API_URL' < /usr/share/nginx/html/assets/settings.template.json > /usr/share/nginx/html/assets/settings.json && exec nginx -g 'daemon off;'"
